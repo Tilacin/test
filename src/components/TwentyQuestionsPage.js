@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import questionsArray from "../data"; // импортируем массив вопросов из файла "data"
+import questionsArray from "../data";
 import { useNavigate } from "react-router-dom";
 
 const HundredQuestionsPage = () => {
@@ -7,16 +7,17 @@ const HundredQuestionsPage = () => {
   const [numCorrectAnswers, setNumCorrectAnswers] = useState(0);
   const navigate = useNavigate();
 
+  const correctIndex = questionsArray[questionIndex].correctAnswer;
+
   const handleNextQuestion = (selectedAnswer) => {
     if (selectedAnswer === questionsArray[questionIndex].correctAnswer) {
-        setNumCorrectAnswers(numCorrectAnswers + 1);
+      setNumCorrectAnswers(numCorrectAnswers + 1);
     }
     if (questionIndex < questionsArray.length - 1) {
       setQuestionIndex((prevIndex) => prevIndex + 1);
     } else {
-      navigate("/results")
+      navigate("/results");
     }
-    
   };
 
   return (
@@ -31,8 +32,8 @@ const HundredQuestionsPage = () => {
 
         <div className="flex  text-lg font-bold p-1 justify-end">Меню</div>
       </div>
-      <div className=" border-[#A0C6FF] border-2 rounded-xl">
-        <picture>
+      <div className=" border-[#A0C6FF] border-2 rounded-xl bg-black">
+        <picture className="">
           <img
             src={questionsArray[questionIndex].question}
             alt="code"
@@ -47,7 +48,13 @@ const HundredQuestionsPage = () => {
             onClick={() => handleNextQuestion(index)}
             className="flex flex-col gap-2 m-2 text-lg font-bold xl:w-[660px] w-full min-w-[250px]"
           >
-            <button className="flex my-2 p-1 sm:p-2 rounded-md  shadow-neutral-400 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 hover:scale-105 border-transparent focus:border-2 active:border-red-500 ">
+            <button
+              className={`flex my-2 p-1 sm:p-2 rounded-md  shadow-neutral-400 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 hover:scale-105 border-transparent focus:border-2 ${
+                index === correctIndex
+                  ? "active:border-green-500"
+                  : " active:border-red-500 "
+              }`}
+            >
               {answer}
             </button>
           </li>
