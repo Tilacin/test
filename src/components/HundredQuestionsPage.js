@@ -31,7 +31,14 @@ const HundredQuestionsPage = () => {
           <img src="/quiz.png" alt="" width={160} height={114} />
         </div>
 
-        <div className="flex  text-lg font-bold p-1 justify-end">Меню</div>
+        <picture className="flex  text-lg font-bold p-1 justify-end ">
+          <img
+            src="setting.png"
+            alt="code"
+            width={35}
+            height={35}
+          />
+        </picture>
       </div>
       <div className=" border-[#A0C6FF] border-2 rounded-xl">
         <picture>
@@ -47,7 +54,8 @@ const HundredQuestionsPage = () => {
           <li
             key={index}
             onClick={() => handleNextQuestion(index)}
-            className="flex flex-col gap-2 m-2 text-lg font-bold xl:w-[700px] sm:w-[450px]"
+            className="flex flex-col gap-2 m-2 text-lg font-bold xl:w-[700px] w-full min-w-[250px]"
+            
           >
             <button
               className={`flex my-2 p-1 sm:p-2 rounded-md  shadow-neutral-400 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 hover:scale-105 border-transparent focus:border-2 ${

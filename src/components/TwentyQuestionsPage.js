@@ -1,15 +1,21 @@
 import React, { useState } from "react";
 import questionsArray from "../data";
 import { useNavigate } from "react-router-dom";
+import { useSound } from "../soundContext";
+import PopupMenu from "./PopupMenu";
 
 const HundredQuestionsPage = () => {
   const [questionIndex, setQuestionIndex] = useState(0);
   const [numCorrectAnswers, setNumCorrectAnswers] = useState(0);
   const navigate = useNavigate();
+  const { playSound } = useSound();
 
   const correctIndex = questionsArray[questionIndex].correctAnswer;
 
   const handleNextQuestion = (selectedAnswer) => {
+    const isCorrectAnswer =
+      selectedAnswer === questionsArray[questionIndex].correctAnswer;
+
     if (selectedAnswer === questionsArray[questionIndex].correctAnswer) {
       setNumCorrectAnswers(numCorrectAnswers + 1);
     }
@@ -18,6 +24,7 @@ const HundredQuestionsPage = () => {
     } else {
       navigate("/results");
     }
+    playSound(isCorrectAnswer);
   };
 
   return (
@@ -27,10 +34,12 @@ const HundredQuestionsPage = () => {
           Вопрос {questionIndex + 1}/100
         </h1>
         <div className="flex justify-center">
-          <img src="/quiz.png" alt="" width={160} height={114} />
+          <img src="/quiz.png" alt="quiz logo" width={160} height={114} />
         </div>
 
-        <div className="flex  text-lg font-bold p-1 justify-end">Меню</div>
+        <div className="flex  text-lg font-bold p-1 justify-end ">
+          <PopupMenu/>
+        </div>
       </div>
       <div className=" border-[#A0C6FF] border-2 rounded-xl bg-black">
         <picture className="">
