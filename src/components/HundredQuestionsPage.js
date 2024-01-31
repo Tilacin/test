@@ -1,27 +1,31 @@
 import React, { useState } from "react";
-import questionsArray from "../data"; // импортируем массив вопросов из файла "data"
+import questionsArray from "../data";
 import { useNavigate } from "react-router-dom";
+import { useSound } from "../soundContext";
 import PopupMenu from "./PopupMenu";
 
 const HundredQuestionsPage = () => {
   const [questionIndex, setQuestionIndex] = useState(0);
   const [numCorrectAnswers, setNumCorrectAnswers] = useState(0);
   const navigate = useNavigate();
+  const { playSound } = useSound();
 
   const correctIndex = questionsArray[questionIndex].correctAnswer;
 
   const handleNextQuestion = (selectedAnswer) => {
+    const isCorrectAnswer =
+      selectedAnswer === questionsArray[questionIndex].correctAnswer;
+
     if (selectedAnswer === questionsArray[questionIndex].correctAnswer) {
-        setNumCorrectAnswers(numCorrectAnswers + 1);
+      setNumCorrectAnswers(numCorrectAnswers + 1);
     }
     if (questionIndex < questionsArray.length - 1) {
       setQuestionIndex((prevIndex) => prevIndex + 1);
     } else {
-      navigate("/results")
+      navigate("/results");
     }
-    
+    playSound(isCorrectAnswer);
   };
-
   return (
     <div className="flex flex-col bg-amber-50 w-screen h-screen items-center p-2 box-border  border-[#A0C6FF]  border-2">
       <div className="grid grid-cols-3 gap-1 place-content-evenly sm:w-[450px] items-center xl:w-[660px] ">
@@ -33,7 +37,7 @@ const HundredQuestionsPage = () => {
         </div>
 
         <div className="flex  text-lg font-bold p-1 justify-end ">
-          <PopupMenu/>
+          <PopupMenu />
         </div>
       </div>
       <div className=" border-[#A0C6FF] border-2 rounded-xl">
@@ -51,7 +55,6 @@ const HundredQuestionsPage = () => {
             key={index}
             onClick={() => handleNextQuestion(index)}
             className="flex flex-col gap-2 m-2 text-lg font-bold xl:w-[700px] w-full min-w-[250px]"
-            
           >
             <button
               className={`flex my-2 p-1 sm:p-2 rounded-md  shadow-neutral-400 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 hover:scale-105 border-transparent focus:border-2 ${

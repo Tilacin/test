@@ -175,7 +175,7 @@ const questionsArray = [
     correctAnswer: 0,
   },
   {
-    question:  "/q36.png",
+    question: "/q36.png",
     answers: ["3", "undefined", "4"],
     correctAnswer: 1,
   },
@@ -231,7 +231,11 @@ const questionsArray = [
   },
   {
     question: "/q47.png",
-    answers: ["[ 1, 'a', 'b', 4 ]", "[ 1, 2, 'a', 'b', 3, 4 ]", "[ 1, 2, 'a', 'b' ]"],
+    answers: [
+      "[ 1, 'a', 'b', 4 ]",
+      "[ 1, 2, 'a', 'b', 3, 4 ]",
+      "[ 1, 2, 'a', 'b' ]",
+    ],
     correctAnswer: 2,
   },
   {
@@ -246,77 +250,85 @@ const questionsArray = [
   },
   {
     question: "/q50.png",
-    answers: ["[ 'a', 1, 4, 20, 33, ]", "[ 1, 20, 33, 4, 'a' ]", "[ 1, 4, 20, 33, 'a' ]"],
+    answers: [
+      "[ 'a', 1, 4, 20, 33, ]",
+      "[ 1, 20, 33, 4, 'a' ]",
+      "[ 1, 4, 20, 33, 'a' ]",
+    ],
     correctAnswer: 1,
   },
   {
-    question: "Question 1",
-    answers: ["Answer 1", "Answer 2", "Answer 3"],
+    question: "/q51.png",
+    answers: [
+      "'строка'",
+      "[ 'с', 'т', 'р', 'о', 'к', 'а' ]",
+      "'с', 'т', 'р', 'о', 'к', 'а'",
+    ],
+    correctAnswer: 1,
+  },
+  {
+    question: "/q52.png",
+    answers: ["   2   ", "1", "Будет ошибка"],
     correctAnswer: 0,
   },
   {
-    question: "Question 1",
-    answers: ["Answer 1", "Answer 2", "Answer 3"],
+    question: "/q53.png",
+    answers: ["  false   ", "true", "Так нельзя писать в js"],
     correctAnswer: 0,
   },
   {
-    question: "Question 1",
-    answers: ["Answer 1", "Answer 2", "Answer 3"],
+    question: "/q54.png",
+    answers: ["3.3333333333333335, 2.6666666666666665", "3.3, 2.6", "3, 2"],
+    correctAnswer: 2,
+  },
+  {
+    question: "/q55.png",
+    answers: ["   0   ", "4", "1"],
+    correctAnswer: 1,
+  },
+  {
+    question: "/q56.png",
+    answers: ["'name'", "'Петя'", "undefined"],
+    correctAnswer: 2,
+  },
+  {
+    question: "/q57.png",
+    answers: ["2, 3 , 1", "  1, 2, 3  ", "3, 2, 1 "],
     correctAnswer: 0,
   },
   {
-    question: "Question 1",
-    answers: ["Answer 1", "Answer 2", "Answer 3"],
+    question: "/q58.png",
+    answers: ["-4, 0, 4", "-1, 0, 1", "0, 0, 1"],
+    correctAnswer: 1,
+  },
+  {
+    question:  "/q59.png",
+    answers: ["Будет ошибка", "['Toyota', 'Saab', 'Volvo', 'Audi']", "['Toyota', 'Volvo', 'BMW', 'Audi']"],
+    correctAnswer: 2,
+  },
+  {
+    question:  "/q60.png",
+    answers: ["выведет от 0 - 4", "выведет от 0 - 5", "выведет от 1 - 5"],
     correctAnswer: 0,
   },
   {
-    question: "Question 1",
-    answers: ["Answer 1", "Answer 2", "Answer 3"],
+    question: "/q61.png",
+    answers: ["{ 'a', 'b', 1 }", "{ 'a', 'b', '1' }", "{ 'a', 'b', '1', 1 }"],
+    correctAnswer: 2,
+  },
+  {
+    question: "/q62.png",
+    answers: ["3", "2", "4"],
     correctAnswer: 0,
   },
   {
-    question: "Question 1",
-    answers: ["Answer 1", "Answer 2", "Answer 3"],
-    correctAnswer: 0,
+    question:  "/q63.png",
+    answers: ["object, object, number", "object, object, object", "number, object, number"],
+    correctAnswer: 1,
   },
   {
-    question: "Question 1",
-    answers: ["Answer 1", "Answer 2", "Answer 3"],
-    correctAnswer: 0,
-  },
-  {
-    question: "Question 1",
-    answers: ["Answer 1", "Answer 2", "Answer 3"],
-    correctAnswer: 0,
-  },
-  {
-    question: "Question 1",
-    answers: ["Answer 1", "Answer 2", "Answer 3"],
-    correctAnswer: 0,
-  },
-  {
-    question: "Question 1",
-    answers: ["Answer 1", "Answer 2", "Answer 3"],
-    correctAnswer: 0,
-  },
-  {
-    question: "Question 1",
-    answers: ["Answer 1", "Answer 2", "Answer 3"],
-    correctAnswer: 0,
-  },
-  {
-    question: "Question 1",
-    answers: ["Answer 1", "Answer 2", "Answer 3"],
-    correctAnswer: 0,
-  },
-  {
-    question: "Question 1",
-    answers: ["Answer 1", "Answer 2", "Answer 3"],
-    correctAnswer: 0,
-  },
-  {
-    question: "Question 1",
-    answers: ["Answer 1", "Answer 2", "Answer 3"],
+    question: "/q64.png",
+    answers: ["'123'", "123", "'10023'"],
     correctAnswer: 0,
   },
   {
@@ -390,115 +402,6 @@ const questionsArray = [
     correctAnswer: 0,
   },
 
-  {
-    question: "Question 100",
-    answers: ["Answer 1", "Answer 2", "Answer 3"],
-    correctAnswer: 2,
-  },
-  {
-    question: "Question 1",
-    answers: ["Answer 1", "Answer 2", "Answer 3"],
-    correctAnswer: 0,
-  },
-  {
-    question: "Question 1",
-    answers: ["Answer 1", "Answer 2", "Answer 3"],
-    correctAnswer: 0,
-  },
-  {
-    question: "Question 1",
-    answers: ["Answer 1", "Answer 2", "Answer 3"],
-    correctAnswer: 0,
-  },
-  {
-    question: "Question 1",
-    answers: ["Answer 1", "Answer 2", "Answer 3"],
-    correctAnswer: 0,
-  },
-
-  {
-    question: "Question 100",
-    answers: ["Answer 1", "Answer 2", "Answer 3"],
-    correctAnswer: 2,
-  },
-  {
-    question: "Question 1",
-    answers: ["Answer 1", "Answer 2", "Answer 3"],
-    correctAnswer: 0,
-  },
-  {
-    question: "Question 1",
-    answers: ["Answer 1", "Answer 2", "Answer 3"],
-    correctAnswer: 0,
-  },
-  {
-    question: "Question 1",
-    answers: ["Answer 1", "Answer 2", "Answer 3"],
-    correctAnswer: 0,
-  },
-  {
-    question: "Question 1",
-    answers: ["Answer 1", "Answer 2", "Answer 3"],
-    correctAnswer: 0,
-  },
-
-  {
-    question: "Question 100",
-    answers: ["Answer 1", "Answer 2", "Answer 3"],
-    correctAnswer: 2,
-  },
-  {
-    question: "Question 1",
-    answers: ["Answer 1", "Answer 2", "Answer 3"],
-    correctAnswer: 0,
-  },
-  {
-    question: "Question 1",
-    answers: ["Answer 1", "Answer 2", "Answer 3"],
-    correctAnswer: 0,
-  },
-  {
-    question: "Question 1",
-    answers: ["Answer 1", "Answer 2", "Answer 3"],
-    correctAnswer: 0,
-  },
-  {
-    question: "Question 1",
-    answers: ["Answer 1", "Answer 2", "Answer 3"],
-    correctAnswer: 0,
-  },
-
-  {
-    question: "Question 100",
-    answers: ["Answer 1", "Answer 2", "Answer 3"],
-    correctAnswer: 2,
-  },
-  {
-    question: "Question 1",
-    answers: ["Answer 1", "Answer 2", "Answer 3"],
-    correctAnswer: 0,
-  },
-  {
-    question: "Question 1",
-    answers: ["Answer 1", "Answer 2", "Answer 3"],
-    correctAnswer: 0,
-  },
-  {
-    question: "Question 1",
-    answers: ["Answer 1", "Answer 2", "Answer 3"],
-    correctAnswer: 0,
-  },
-  {
-    question: "Question 1",
-    answers: ["Answer 1", "Answer 2", "Answer 3"],
-    correctAnswer: 0,
-  },
-
-  {
-    question: "Question 100",
-    answers: ["Answer 1", "Answer 2", "Answer 3"],
-    correctAnswer: 2,
-  },
   {
     question: "Question 100",
     answers: ["Answer 1", "Answer 2", "Answer 3"],

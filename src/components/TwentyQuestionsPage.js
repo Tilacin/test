@@ -5,21 +5,35 @@ import { useSound } from "../soundContext";
 import PopupMenu from "./PopupMenu";
 
 const HundredQuestionsPage = () => {
+  function getRandomNumber(max) {
+    return Math.floor(Math.random() * max);
+  }
+
+  const newArray = [];
+  const usedIndexes = new Set();
+  while (newArray.length < 20) {
+    const randomIndex = getRandomNumber(questionsArray.length);
+    if (!usedIndexes.has(randomIndex)) {
+      newArray.push(questionsArray[randomIndex]);
+      usedIndexes.add(randomIndex);
+    }
+  }
+
   const [questionIndex, setQuestionIndex] = useState(0);
   const [numCorrectAnswers, setNumCorrectAnswers] = useState(0);
   const navigate = useNavigate();
   const { playSound } = useSound();
 
-  const correctIndex = questionsArray[questionIndex].correctAnswer;
+  const correctIndex = newArray[questionIndex].correctAnswer;
 
   const handleNextQuestion = (selectedAnswer) => {
     const isCorrectAnswer =
-      selectedAnswer === questionsArray[questionIndex].correctAnswer;
+      selectedAnswer === newArray[questionIndex].correctAnswer;
 
-    if (selectedAnswer === questionsArray[questionIndex].correctAnswer) {
+    if (selectedAnswer === newArray[questionIndex].correctAnswer) {
       setNumCorrectAnswers(numCorrectAnswers + 1);
     }
-    if (questionIndex < questionsArray.length - 1) {
+    if (questionIndex < newArray.length - 1) {
       setQuestionIndex((prevIndex) => prevIndex + 1);
     } else {
       navigate("/results");
@@ -31,27 +45,27 @@ const HundredQuestionsPage = () => {
     <div className="flex flex-col bg-amber-50 w-screen h-screen items-center p-2 box-border  border-[#A0C6FF]  border-2">
       <div className="grid grid-cols-3 gap-1 place-content-evenly sm:w-[450px] items-center xl:w-[660px] ">
         <h1 className="text-xl font-bold m-2 md:text-2xl xl:text-3xl lg:m-4 items-start">
-          Вопрос {questionIndex + 1}/100
+          Вопрос {questionIndex + 1}/20
         </h1>
         <div className="flex justify-center">
           <img src="/quiz.png" alt="quiz logo" width={160} height={114} />
         </div>
 
         <div className="flex  text-lg font-bold p-1 justify-end ">
-          <PopupMenu/>
+          <PopupMenu />
         </div>
       </div>
       <div className=" border-[#A0C6FF] border-2 rounded-xl bg-black">
         <picture className="">
           <img
-            src={questionsArray[questionIndex].question}
+            src={newArray[questionIndex].question}
             alt="code"
             className="rounded-xl xl:w-[650px]"
           />
         </picture>
       </div>
       <ul>
-        {questionsArray[questionIndex].answers.map((answer, index) => (
+        {newArray[questionIndex].answers.map((answer, index) => (
           <li
             key={index}
             onClick={() => handleNextQuestion(index)}
