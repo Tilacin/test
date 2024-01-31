@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import questionsArray from "../data"; // импортируем массив вопросов из файла "data"
 import { useNavigate } from "react-router-dom";
+import PopupMenu from "./PopupMenu";
 
 const HundredQuestionsPage = () => {
   const [questionIndex, setQuestionIndex] = useState(0);
@@ -31,14 +32,9 @@ const HundredQuestionsPage = () => {
           <img src="/quiz.png" alt="" width={160} height={114} />
         </div>
 
-        <picture className="flex  text-lg font-bold p-1 justify-end ">
-          <img
-            src="setting.png"
-            alt="code"
-            width={35}
-            height={35}
-          />
-        </picture>
+        <div className="flex  text-lg font-bold p-1 justify-end ">
+          <PopupMenu/>
+        </div>
       </div>
       <div className=" border-[#A0C6FF] border-2 rounded-xl">
         <picture>

@@ -17,11 +17,11 @@ const PopupMenu = ({ onHomePage }) => {
         <img src="setting.png" alt="Settings" width={35} height={35}/>
       </div>
       {showMenu && (
-        <div className="absolute top-0 right-0 bg-white border border-gray-300 shadow z-10 cursor-pointer" >
-          <div className="p-2" onClick={handleToggleSound}>
+        <div className="absolute top-0 right-0  border-2 rounded-lg bg-amber-100 shadow-neutral-400 z-10 cursor-pointer w-[250px] h-[300px] border-cyan-500" >
+          <div className=" px-10 pt-20 pb-10" onClick={handleToggleSound}>
             {isSoundOn ? 'Выключить звук' : 'Включить звук'}
           </div>
-          { !onHomePage && <Link to="/" className="p-2">На главную</Link> }
+          { !onHomePage && <Link to="/" className="p-8 ">На главную</Link> }
           <div className="cursor-pointer absolute top-2 right-2" onClick={() => setShowMenu(false)}>
             <img src="close.png" alt="Close" width={35} height={35}/>
           </div>
