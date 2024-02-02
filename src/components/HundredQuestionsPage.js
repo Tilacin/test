@@ -29,10 +29,10 @@ const HundredQuestionsPage = () => {
   return (
     <div className="flex flex-col bg-amber-50 w-screen h-screen items-center p-2 box-border  border-[#A0C6FF]  border-2">
       <div className="grid grid-cols-3 gap-1 place-content-evenly sm:w-[450px] items-center xl:w-[660px] ">
-        <h1 className="text-xl font-bold m-2 md:text-2xl xl:text-3xl lg:m-4 items-start">
+        <h1 className="text-xl font-bold m-2 md:text-2xl xl:text-3xl lg:m-4 items-start ">
           Вопрос {questionIndex + 1}/100
         </h1>
-        <div className="flex justify-center">
+        <div className="flex justify-center sm:w-[160px] w-[90px]">
           <img src="/quiz.png" alt="" width={160} height={114} />
         </div>
 

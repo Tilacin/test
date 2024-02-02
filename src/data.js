@@ -278,7 +278,7 @@ const questionsArray = [
   },
   {
     question: "/q54.png",
-    answers: ["3.3333333333333335, 2.6666666666666665", "3.3, 2.6", "3, 2"],
+    answers: ["3.33335, 2.66665", "3.3, 2.6", "3, 2"],
     correctAnswer: 2,
   },
   {
@@ -303,7 +303,7 @@ const questionsArray = [
   },
   {
     question:  "/q59.png",
-    answers: ["Будет ошибка", "['Toyota', 'Saab', 'Volvo', 'Audi']", "['Toyota', 'Volvo', 'BMW', 'Audi']"],
+    answers: ["Будет ошибка", "['Toyota','Saab','Volvo','Audi']", "['Toyota','Volvo','BMW','Audi']"],
     correctAnswer: 2,
   },
   {

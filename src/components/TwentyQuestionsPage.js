@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useSound } from "../soundContext";
 import PopupMenu from "./PopupMenu";
 
-const HundredQuestionsPage = () => {
+const TwentyQuestionsPage = () => {
   function getRandomNumber(max) {
     return Math.floor(Math.random() * max);
   }
@@ -36,7 +36,7 @@ const HundredQuestionsPage = () => {
     if (questionIndex < newArray.length - 1) {
       setQuestionIndex((prevIndex) => prevIndex + 1);
     } else {
-      navigate("/results");
+      navigate(`/results?score=${numCorrectAnswers}`);
     }
     playSound(isCorrectAnswer);
   };
@@ -47,7 +47,7 @@ const HundredQuestionsPage = () => {
         <h1 className="text-xl font-bold m-2 md:text-2xl xl:text-3xl lg:m-4 items-start">
           Вопрос {questionIndex + 1}/20
         </h1>
-        <div className="flex justify-center">
+        <div className="flex justify-center sm:w-[160px] w-[90px]">
           <img src="/quiz.png" alt="quiz logo" width={160} height={114} />
         </div>
 
@@ -87,4 +87,4 @@ const HundredQuestionsPage = () => {
   );
 };
 
-export default HundredQuestionsPage;
+export default TwentyQuestionsPage;
