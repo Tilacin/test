@@ -1,5 +1,3 @@
-//import React, { useState } from "react";
-
 import { useLocation } from "react-router-dom";
 import PopupMenu from "./PopupMenu";
 
@@ -7,7 +5,9 @@ const ResultPage = () => {
   const { search } = useLocation();
   const params = new URLSearchParams(search);
   const score = params.get("score");
-  const percentage = Math.round((score / 20) * 100);
+  const total = params.get("total");
+
+  const percentage = Math.round((score / total) * 100);
 
   let numPicture;
   if (percentage <= 30) {

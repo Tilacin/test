@@ -22,7 +22,7 @@ const HundredQuestionsPage = () => {
     if (questionIndex < questionsArray.length - 1) {
       setQuestionIndex((prevIndex) => prevIndex + 1);
     } else {
-      navigate("/results");
+      navigate(`/results?score=${numCorrectAnswers}&total=100`);
     }
     playSound(isCorrectAnswer);
   };

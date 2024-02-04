@@ -36,7 +36,7 @@ const TwentyQuestionsPage = () => {
     if (questionIndex < newArray.length - 1) {
       setQuestionIndex((prevIndex) => prevIndex + 1);
     } else {
-      navigate(`/results?score=${numCorrectAnswers}`);
+      navigate(`/results?score=${numCorrectAnswers}&total=20`);
     }
     playSound(isCorrectAnswer);
   };

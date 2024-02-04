@@ -201,7 +201,7 @@ const questionsArray = [
   },
   {
     question: "/q41.png",
-    answers: ["Пустой массив", "[ 1, 2 ]", "[ 1, 2, 3 ]"],
+    answers: ["[]", "[ 1, 2 ]", "[ 1, 2, 3 ]"],
     correctAnswer: 0,
   },
   {
