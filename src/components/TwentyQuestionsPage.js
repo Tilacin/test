@@ -14,7 +14,7 @@ const TwentyQuestionsPage = () => {
   while (newArray.length < 20) {
     const randomIndex = getRandomNumber(questionsArray.length);
     if (!usedIndexes.has(randomIndex)) {
-      newArray.push(questionsArray[randomIndex]);
+      newArray.push({ ...questionsArray[randomIndex], id: randomIndex });
       usedIndexes.add(randomIndex);
     }
   }
