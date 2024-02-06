@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import questionsArray from "../data";
 import { useNavigate } from "react-router-dom";
 import { useSound } from "../soundContext";
@@ -9,31 +9,39 @@ const TwentyQuestionsPage = () => {
     return Math.floor(Math.random() * max);
   }
 
-  const newArray = [];
-  const usedIndexes = new Set();
-  while (newArray.length < 20) {
-    const randomIndex = getRandomNumber(questionsArray.length);
-    if (!usedIndexes.has(randomIndex)) {
-      newArray.push({ ...questionsArray[randomIndex], id: randomIndex });
-      usedIndexes.add(randomIndex);
-    }
-  }
-
+  const [randomQuestions, setRandomQuestions] = useState([]);
   const [questionIndex, setQuestionIndex] = useState(0);
   const [numCorrectAnswers, setNumCorrectAnswers] = useState(0);
   const navigate = useNavigate();
   const { playSound } = useSound();
 
-  const correctIndex = newArray[questionIndex].correctAnswer;
+  
+
+  useEffect(() => {
+    const createRandomQuestions = () => {
+      const newArray = [];
+      const usedIndexes = new Set();
+      while (newArray.length < 20) {
+        const randomIndex = getRandomNumber(questionsArray.length);
+        if (!usedIndexes.has(randomIndex)) {
+          newArray.push({ ...questionsArray[randomIndex], id: randomIndex });
+          usedIndexes.add(randomIndex);
+        }
+      }
+      setRandomQuestions(newArray);
+    };
+
+    createRandomQuestions();
+  }, []);
 
   const handleNextQuestion = (selectedAnswer) => {
     const isCorrectAnswer =
-      selectedAnswer === newArray[questionIndex].correctAnswer;
-
-    if (selectedAnswer === newArray[questionIndex].correctAnswer) {
+      selectedAnswer === randomQuestions[questionIndex]?.correctAnswer; // Проверка существования correctAnswer
+      
+    if (isCorrectAnswer) {
       setNumCorrectAnswers(numCorrectAnswers + 1);
     }
-    if (questionIndex < newArray.length - 1) {
+    if (questionIndex < randomQuestions.length - 1) {
       setQuestionIndex((prevIndex) => prevIndex + 1);
     } else {
       navigate(`/results?score=${numCorrectAnswers}&total=20`);
@@ -57,15 +65,18 @@ const TwentyQuestionsPage = () => {
       </div>
       <div className=" border-[#A0C6FF] border-2 rounded-xl bg-black">
         <picture className="">
+        {randomQuestions[questionIndex] && (
           <img
-            src={newArray[questionIndex].question}
+            src={randomQuestions[questionIndex].question}
             alt="code"
             className="rounded-xl xl:w-[650px]"
           />
+          )}
         </picture>
       </div>
       <ul>
-        {newArray[questionIndex].answers.map((answer, index) => (
+        {randomQuestions[questionIndex] && randomQuestions[questionIndex].answers && (
+        randomQuestions[questionIndex].answers.map((answer, index) => (
           <li
             key={index}
             onClick={() => handleNextQuestion(index)}
@@ -73,7 +84,7 @@ const TwentyQuestionsPage = () => {
           >
             <button
               className={`flex my-2 p-1 sm:p-2 rounded-md  shadow-neutral-400 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 hover:scale-105 border-transparent focus:border-2 ${
-                index === correctIndex
+                index === randomQuestions[questionIndex]?.correctAnswer
                   ? "active:border-green-500"
                   : " active:border-red-500 "
               }`}
@@ -81,7 +92,7 @@ const TwentyQuestionsPage = () => {
               {answer}
             </button>
           </li>
-        ))}
+        )))}
       </ul>
     </div>
   );
