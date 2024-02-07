@@ -35,7 +35,7 @@ const HundredQuestionsPage = () => {
           Вопрос {questionIndex + 1}/100
         </h1>
         <div className="flex justify-center sm:w-[160px] w-[90px]">
-          <img src="/quiz.png" alt="" width={160} height={114} />
+          <img src="/quiz.png" alt="quiz logo" width={160} height={114} />
         </div>
 
         <div className="flex  text-lg font-bold p-1 justify-end ">
