@@ -15,8 +15,6 @@ const TwentyQuestionsPage = () => {
   const navigate = useNavigate();
   const { playSound } = useSound();
 
-  
-
   useEffect(() => {
     const createRandomQuestions = () => {
       const newArray = [];
@@ -36,16 +34,17 @@ const TwentyQuestionsPage = () => {
 
   const handleNextQuestion = (selectedAnswer) => {
     const isCorrectAnswer =
-      selectedAnswer === randomQuestions[questionIndex]?.correctAnswer; // Проверка существования correctAnswer
-      
+      selectedAnswer === randomQuestions[questionIndex]?.correctAnswer;
     if (isCorrectAnswer) {
       setNumCorrectAnswers(numCorrectAnswers + 1);
     }
-    if (questionIndex < randomQuestions.length - 1) {
-      setQuestionIndex((prevIndex) => prevIndex + 1);
-    } else {
-      navigate(`/results?score=${numCorrectAnswers}&total=20`);
-    }
+    setTimeout(() => {
+      if (questionIndex < randomQuestions.length - 1) {
+        setQuestionIndex((prevIndex) => prevIndex + 1);
+      } else {
+        navigate(`/results?score=${numCorrectAnswers}&total=20`);
+      }
+    }, 1000);
     playSound(isCorrectAnswer);
   };
 
@@ -65,34 +64,35 @@ const TwentyQuestionsPage = () => {
       </div>
       <div className=" border-[#A0C6FF] border-2 rounded-xl bg-black">
         <picture className="">
-        {randomQuestions[questionIndex] && (
-          <img
-            src={randomQuestions[questionIndex].question}
-            alt="code"
-            className="rounded-xl xl:w-[650px]"
-          />
+          {randomQuestions[questionIndex] && (
+            <img
+              src={randomQuestions[questionIndex].question}
+              alt="code"
+              className="rounded-xl xl:w-[650px]"
+            />
           )}
         </picture>
       </div>
       <ul>
-        {randomQuestions[questionIndex] && randomQuestions[questionIndex].answers && (
-        randomQuestions[questionIndex].answers.map((answer, index) => (
-          <li
-            key={index}
-            onClick={() => handleNextQuestion(index)}
-            className="flex flex-col gap-2 m-2 text-lg font-bold xl:w-[660px] w-full min-w-[250px]"
-          >
-            <button
-              className={`flex my-2 p-1 sm:p-2 rounded-md  shadow-neutral-400 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 hover:scale-105 border-transparent focus:border-2 ${
-                index === randomQuestions[questionIndex]?.correctAnswer
-                  ? "active:border-green-500"
-                  : " active:border-red-500 "
-              }`}
+        {randomQuestions[questionIndex] &&
+          randomQuestions[questionIndex].answers &&
+          randomQuestions[questionIndex].answers.map((answer, index) => (
+            <li
+              key={index}
+              onClick={() => handleNextQuestion(index)}
+              className="flex flex-col gap-2 m-2 text-lg font-bold xl:w-[660px] w-full min-w-[250px]"
             >
-              {answer}
-            </button>
-          </li>
-        )))}
+              <button
+                className={`flex my-2 p-1 sm:p-2 rounded-md  shadow-neutral-400 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 hover:scale-105 border-transparent focus:border-2 ${
+                  index === randomQuestions[questionIndex]?.correctAnswer
+                    ? "active:border-green-500"
+                    : " active:border-red-500 "
+                }`}
+              >
+                {answer}
+              </button>
+            </li>
+          ))}
       </ul>
     </div>
   );

@@ -19,11 +19,13 @@ const HundredQuestionsPage = () => {
     if (selectedAnswer === questionsArray[questionIndex].correctAnswer) {
       setNumCorrectAnswers(numCorrectAnswers + 1);
     }
+    setTimeout(() => {
     if (questionIndex < questionsArray.length - 1) {
       setQuestionIndex((prevIndex) => prevIndex + 1);
     } else {
       navigate(`/results?score=${numCorrectAnswers}&total=100`);
     }
+  }, 1000);
     playSound(isCorrectAnswer);
   };
   return (
