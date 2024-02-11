@@ -11,19 +11,19 @@ const ResultPage = () => {
 
   let numPicture;
   if (percentage <= 30) {
-    numPicture = "r1.jpg";
+    numPicture = "/images/r1.jpg";
   } else if (percentage > 30 && percentage <= 50) {
-    numPicture = "r2.jpg";
+    numPicture = "/images/r2.jpg";
   } else if (percentage > 50 && percentage < 100) {
-    numPicture = "r3.jpg";
+    numPicture = "/images/r3.jpg";
   } else if (percentage === 100) {
-    numPicture = "r10.jpg";
+    numPicture = "/images/r10.jpg";
   }
   return (
     <div className="flex flex-col bg-amber-50 w-screen h-screen items-center p-2 box-border  border-[#A0C6FF]  border-2">
       <div className="grid grid-cols-2 gap-1 place-content-evenly sm:w-[450px] items-center xl:w-[660px] ">
         <div className="flex sm:w-[160px] w-[80px]">
-          <img src="/quiz.png" alt="" width={160} height={114} />
+          <img src="/images/quiz.png" alt="" width={160} height={114} />
         </div>
 
         <div className="flex  text-lg font-bold p-1 justify-end ">

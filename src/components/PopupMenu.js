@@ -14,7 +14,7 @@ const PopupMenu = ({ onHomePage }) => {
   return (
     <div className="relative">
       <div className="cursor-pointer" onClick={() => setShowMenu(!showMenu)}>
-        <img src="setting.png" alt="Settings" width={35} height={35}/>
+        <img src="/images/setting.png" alt="Settings" width={35} height={35}/>
       </div>
       {showMenu && (
         <div className="absolute top-0 right-0  border-2 rounded-lg bg-amber-100 shadow-neutral-400 z-10 cursor-pointer w-[250px] h-[300px] border-cyan-500" >
@@ -23,7 +23,7 @@ const PopupMenu = ({ onHomePage }) => {
           </div>
           { !onHomePage && <Link to="/" className="p-8 ">На главную</Link> }
           <div className="cursor-pointer absolute top-2 right-2" onClick={() => setShowMenu(false)}>
-            <img src="close.png" alt="Close" width={35} height={35}/>
+            <img src="/images/close.png" alt="Close" width={35} height={35}/>
           </div>
         </div>
       )}

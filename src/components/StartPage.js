@@ -5,7 +5,7 @@ const StartPage = () => {
   return (
     <div className="flex flex-col bg-amber-50 w-screen h-screen items-center box-border sm:justify-center  border-[#A0C6FF] border-4">
       <div className="flex justify-start pt-6 sm:pt-1">
-        <img src="/quiz.png" alt="" width={160} height={114} />
+        <img src="/images/quiz.png" alt="" width={160} height={114} />
       </div>
       <h1 className="text-3xl font-bold m-2 sm:text-5xl pt-12">
         Добро пожаловать!

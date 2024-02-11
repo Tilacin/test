@@ -1,7 +1,7 @@
 let isSoundOn = true;
 
-export const correctSound = new Audio('/sounds/correct-sound.mp3');
-export const wrongSound = new Audio('/sounds/wrong-sound.mp3');
+export const correctSound = new Audio('sounds/correct.mp3');
+export const wrongSound = new Audio('sounds/wrong.mp3');
 
 export const playSound = (isCorrect) => {
   if (isSoundOn) {

@@ -20,12 +20,12 @@ const HundredQuestionsPage = () => {
       setNumCorrectAnswers(numCorrectAnswers + 1);
     }
     setTimeout(() => {
-    if (questionIndex < questionsArray.length - 1) {
-      setQuestionIndex((prevIndex) => prevIndex + 1);
-    } else {
-      navigate(`/results?score=${numCorrectAnswers}&total=100`);
-    }
-  }, 1000);
+      if (questionIndex < questionsArray.length - 1) {
+        setQuestionIndex((prevIndex) => prevIndex + 1);
+      } else {
+        navigate(`/results?score=${numCorrectAnswers}&total=100`);
+      }
+    }, 1000);
     playSound(isCorrectAnswer);
   };
   return (
@@ -35,7 +35,7 @@ const HundredQuestionsPage = () => {
           Вопрос {questionIndex + 1}/100
         </h1>
         <div className="flex justify-center sm:w-[160px] w-[90px]">
-          <img src="/quiz.png" alt="quiz logo" width={160} height={114} />
+          <img src="/images/quiz.png" alt="quiz logo" width={160} height={114} />
         </div>
 
         <div className="flex  text-lg font-bold p-1 justify-end ">
